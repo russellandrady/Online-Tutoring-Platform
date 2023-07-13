@@ -4,6 +4,7 @@ $server_name="localhost";
 $user_name="root";
 $password="";
 $database="main_db";
+//testing
 
 $con = new mysqli ($server_name, $user_name , $password , $database);
 
