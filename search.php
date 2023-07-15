@@ -166,6 +166,14 @@ $list_check = new checkboxlist();
 					</div>
 					<div class="itemrow">
 				  			<div style="width: 25%; float: left;">
+				  				<label>Time: </label>
+				  			</div>
+				  			<div style="width: 75%; float: left;">
+							<?php $list_check->timelistcombo(); ?>
+						</div>
+					</div>
+					<div class="itemrow">
+				  			<div style="width: 25%; float: left;">
 				  				<label>Salary Range: </label>
 				  			</div>
 							<div style="width: 75%; float: left;">
@@ -221,6 +229,8 @@ $list_check = new checkboxlist();
 					$f_loca = mysqli_real_escape_string($con, $f_loca);
 					$f_university = $_POST['p_university'];
 					$f_university = mysqli_real_escape_string($con, $f_university);
+					$f_time = $_POST['timelistcombo'];
+					$f_time = mysqli_real_escape_string($con, $f_time);
 
 
 					//if(($f_class && $f_medium && $f_sal && $f_loca && $f_university) == ""){
@@ -251,6 +261,9 @@ $list_check = new checkboxlist();
 
 					if ($f_university != "None"){
 					    $condition =  $condition . " AND inst_name LIKE '%{$f_university}%' ";
+					}
+					if ($f_time != "None"){
+					    $condition =  $condition . " AND time_of LIKE '%{$f_time}%' ";
 					} 
 
 				
@@ -290,6 +303,8 @@ $list_check = new checkboxlist();
 						$salary = $row['salary'];
 						$location = $row['prefer_location'];
 						$location = str_replace(",", ", ", $location);
+						$time_1 = $row['time_of'];
+						$time_1 = str_replace(",", ", ", $time_1);
 						$p_university = $row['inst_name'];
 						$medium = $row['medium'];
 
@@ -378,6 +393,14 @@ $list_check = new checkboxlist();
 					  			</div>
 					  			<div class="itemrowdiv2">
 					  				<span>'.$medium.'</span>
+					  			</div>
+					  		</div>
+							<div class="itemrow">
+					  			<div class="itemrowdiv1">
+					  				<label>Time: </label>
+					  			</div>
+					  			<div class="itemrowdiv2">
+					  				<span>'.$time_1.'</span>
 					  			</div>
 					  		</div>
 							<div class="itemrow">
