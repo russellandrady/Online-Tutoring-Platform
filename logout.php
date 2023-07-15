@@ -4,7 +4,7 @@ include ( "inc/connection.inc.php" );
 ob_start();
 session_start();
 if (!isset($_SESSION['user_login'])) {
-	header("Location: index.php");
+	header("Location: login.php");
 }
 else {
 	$user = $_SESSION['user_login'];
@@ -15,5 +15,5 @@ session_destroy();
 //unset cookies
 setcookie('user_login', '', 0, "/");
 
-header("Location: index.php");
+header("Location: login.php");
 ?>

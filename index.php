@@ -61,13 +61,12 @@ $time = new timeago();
 		  <div class="mask2"><i class="fa fa-home fa-3x"></i></div>
 		</div>
 			<a class="active navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Newsfeed</a>
-			<a class="navlink" href="search.php">Search Tutor</a>
 			<?php 
 			if($utype_db == "teacher")
 				{
-
-				}else {
 					echo '<a class="navlink" href="postform.php">Post</a>';
+				}else {
+					echo '<a class="navlink" href="search.php">Post</a>';
 				}
 
 			 ?>

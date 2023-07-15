@@ -58,13 +58,12 @@ if (isset($_REQUEST['teacher'])) {
 		<div class="topnav">
 			<a  onclick="w3_open()"><img src="image/menuicon2.png" width="16px" height="15px"></a>
 			<a class="active" href="index.php" style="margin: 0px 0px 0px 52px;">Newsfeed</a>
-			<a href="search.php">Search Tutor</a>
 			<?php 
 			if($utype_db == "teacher")
 				{
-
-				}else {
 					echo '<a href="postform.php">Post</a>';
+				}else {
+					echo'<a href="search.php">Search Tutor</a>';
 				}
 
 			 ?>
