@@ -66,7 +66,7 @@ $time = new timeago();
 				{
 					echo '<a class="navlink" href="postform.php">Post</a>';
 				}else {
-					echo '<a class="navlink" href="search.php">Post</a>';
+					echo '<a class="navlink" href="search.php">Search Tutor</a>';
 				}
 
 			 ?>
