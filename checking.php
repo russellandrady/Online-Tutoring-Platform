@@ -61,9 +61,10 @@ if (isset($_REQUEST['teacher'])) {
 			<?php 
 			if($utype_db == "teacher")
 				{
-					echo '<a href="postform.php">Post</a>';
+					
 				}else {
 					echo'<a href="search.php">Search Tutor</a>';
+					echo '<a href="postform.php">Post</a>';
 				}
 
 			 ?>

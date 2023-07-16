@@ -78,9 +78,9 @@ $list_check = new checkboxlist();
 			<?php 
 			if($utype_db == "teacher")
 				{
-					echo '<a class=" navlink" href="postform.php">Post</a>';
-				}else {
 					
+				}else {
+					echo '<a class=" navlink" href="postform.php">Post</a>';
 				}
 
 			 ?>

@@ -165,9 +165,9 @@ if (isset($_POST['submit'])) {
 			<?php 
 			if($utype_db == "teacher")
 				{
-					echo '<a class="active navlink" href="postform.php">Post</a>';
-				}else {
 					
+				}else {
+					echo '<a class="active navlink" href="postform.php">Post</a>';
 				}
 
 			 ?>
