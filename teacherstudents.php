@@ -118,7 +118,11 @@ $time = new timeago();
 				<?php
 					$todaydate = date("m/d/Y"); //Month/Day/Year 12/20/2017
 
-					$query = $con->query("SELECT * FROM post ORDER BY id DESC");
+					$query = $con->query("SELECT *
+                    FROM post
+                    JOIN applied_post ON post.id = applied_post.post_id
+                    WHERE applied_by = '$user' OR applied_to = '$user'
+                    ORDER BY post.id DESC");//select students who posted
 					while ($row = $query->fetch_assoc()) {
 						$post_id = $row['id'];
 						$postby_id = $row['postby_id'];
