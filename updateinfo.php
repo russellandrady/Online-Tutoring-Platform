@@ -157,7 +157,7 @@ if (((@$_FILES['profilepic']['type']=='image/jpeg') || (@$_FILES['profilepic']['
 
 			 ?>
 			<a class="navlink" href="#contact">Contact</a>
-			<a class="navlink" href="#about">About</a>
+			<a class="navlink" href="aboutus.php">About</a>
 			<div style="float: right;" >
 				<table>
 					<tr>

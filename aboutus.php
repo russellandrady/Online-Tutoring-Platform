@@ -158,7 +158,7 @@ if(isset($_POST['activate'])){
 
 			 ?>
 			<a class="navlink" href="#contact">Contact</a>
-			<a class="navlink" href="aboutus.php">About</a>
+			<a class="active navlink" href=aboutus.php>About</a>
 			<div style="float: right;" >
 				<table>
 					<tr>
@@ -172,7 +172,7 @@ if(isset($_POST['activate'])){
 						</td>';
 							}else{
 								echo '<td>
-							<a class="active navlink" href="login.php">Login</a>
+							<a class="navlink" href="login.php">Login</a>
 						</td>
 						<td>
 							<a class="navlink" href="registration.php">Register</a>
@@ -185,36 +185,37 @@ if(isset($_POST['activate'])){
 			</div>
 		</div>
 	</div>
-	<div class="nbody" style="margin: 0px 100px; overflow: hidden;">
-		<div class="nfeedcenter" style="background-color: unset;">
-			<div>
-		<div class="testbox" style="height: 280px;">
-  <h1>Login</h1>
-
-  <form action="" method="post">
-      <hr>
-  <input type="text" name="email" id="name" placeholder="Email" required/>
-  <input type="password" name="password" id="name" placeholder="Password" required/>
-  <div>
-  <div style="float: right; width: 35%; margin-top: 10px;">
-  	<input type="submit" class="sub_button" name="login" id="name" value="Login"/><br><br>
-  </div>
-  <div style="width: 50%; float: left; padding: 10px 0 5px 4px">
-  	<p>Forget your password?<a href="#" style="font-weight: bold;">Click here</a>.</p>
-  <p>Not registered yet?<a href="registration.php" style="font-weight: bold;">Register here</a>.</p>
-  </div>
-  </div>
-  </form>
-</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h1 class="d-flex justify-content-center">
+					About Us
+				</h1>
+			</div>
+		</div>	
 	</div>
-		</div>
-		<div class="nfeedright">
-			
-		</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h5>
+					<div class="text_contents">
+					This website is for students in our university who like to learn online or teach online. You can be a tutor or a student easily by signing up to the website. <br>
+					This project is made as a result of our 2nd year university project. We had 3 members in our group. <br><br>
+					&#9733; Madushan(leader)<br>
+					&#9733; Ashan<br>
+					&#9733; Dilanga<br>
+					&#9733; Hirusha<br><br>
+					You can choose timeslots to learn or teach and students can choose tutors as they need. So this is easier than you think. <br>
+					If you have any questions, please contact us. 
+					</div>
+				
+				</h5>
+			</div>
+			<div class="col">
+				<img src="learn.jpg"class="rounded mx-auto d-block">	
+			</div>
+		</div>	
 	</div>
-
-	
-	<div>
 	<?php
 		include 'inc/footer.inc.php';
 	?>

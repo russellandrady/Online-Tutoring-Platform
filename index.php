@@ -72,7 +72,7 @@ $time = new timeago();
 
 			 ?>
 			<a class="navlink" href="contact.html">Contact</a>
-			<a class="navlink" href="about us.html">About</a>
+			<a class="navlink" href="aboutus.php">About</a>
 			<div style="float: right;" >
 				<table>
 					<tr>
