@@ -179,7 +179,7 @@ $_POST['first_name'] = trim($_POST['first_name']);
 		</div>
 	</div>
 	<div class="nbody" style="margin: 0px 100px; overflow: hidden;">
-		<div class="nfeedleft" style="background-color: unset;">
+		<div class="nfeedcenter" style="background-color: unset;">
 			<div>
 		<div class="testbox">
 

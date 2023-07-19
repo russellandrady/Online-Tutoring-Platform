@@ -186,7 +186,7 @@ if(isset($_POST['activate'])){
 		</div>
 	</div>
 	<div class="nbody" style="margin: 0px 100px; overflow: hidden;">
-		<div class="nfeedleft" style="background-color: unset;">
+		<div class="nfeedcenter" style="background-color: unset;">
 			<div>
 		<div class="testbox" style="height: 280px;">
   <h1>Login</h1>
