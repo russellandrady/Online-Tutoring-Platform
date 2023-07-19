@@ -60,11 +60,11 @@ $time = new timeago();
 		  <div class="test4"><a href="#"><img src="image/teaching.png" title="Tution" style="border-radius: 50%;" width="42" height="42"></a></div>
 		  <div class="mask2"><i class="fa fa-home fa-3x"></i></div> -->
 		</div>
-			<a class="active navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Newsfeed</a>
+			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Newsfeed</a>
 			<?php 
 			if($utype_db == "teacher")
 				{
-					echo '<a class="navlink" href="teacherstudents.php">Students</a>';
+					echo '<a class="active navlink" href="teacherstudents.php">Students</a>';
 				}if($utype_db == "student") {
 					echo '<a class="navlink" href="search.php">Search Tutor</a>';
 					echo '<a class="navlink" href="postform.php">Post</a>';
@@ -121,7 +121,7 @@ $time = new timeago();
 					$query = $con->query("SELECT *
                     FROM post
                     JOIN applied_post ON post.id = applied_post.post_id
-                    WHERE applied_by = '$user' OR applied_to = '$user'
+                    WHERE applied_by = '$user'
                     ORDER BY post.id DESC");//select students who posted
 					while ($row = $query->fetch_assoc()) {
 						$post_id = $row['id'];
@@ -187,7 +187,9 @@ $time = new timeago();
 											<input type="button" class="sub_button" style="margin: 0px; background-color: #a76d6d; cursor: default;" name="" value="Already Applied" />';
 											}else{
 											echo '<form action="viewpost.php?pid='.$post_id.'" method="post">
-									<input type="submit" class="sub_button" style="margin: 0px;" name="" value="Apply" />
+									<input type="submit" class="sub_button" style="margin: 0px;" name="" value="Remove" />
+									<input type="submit" class="sub_button" style="margin-right: 5px;" name="" value="Zoom" />
+									
 								</form>';
 												}
 										
