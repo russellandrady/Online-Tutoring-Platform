@@ -9,6 +9,7 @@ if($con->connect_errno > 0){
 ?>
 
 <?php
+ include ( "inc/connection.inc.php" );
 ob_start();
 session_start();
 if (!isset($_SESSION['user_login'])) {

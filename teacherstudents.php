@@ -64,7 +64,7 @@ $time = new timeago();
 			<?php 
 			if($utype_db == "teacher")
 				{
-					echo '<a class="active navlink" href="teacherstudents.php">Students</a>';
+					echo '<a class="active navlink" href="teacherstudents.php">Your Choice</a>';
 				}if($utype_db == "student") {
 					echo '<a class="navlink" href="search.php">Search Tutor</a>';
 					echo '<a class="navlink" href="postform.php">Post</a>';
