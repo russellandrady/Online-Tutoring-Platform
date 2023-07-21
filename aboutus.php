@@ -37,6 +37,13 @@ $time = new timeago();
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 	
 </head>
+<style>
+    /* Custom CSS to make all text inside .container-fluid white */
+    .container-fluid * {
+      color: white;
+	  margin: 10px;
+    }
+  </style>
 <body class="body1">
 <div>
 	<div>
@@ -135,25 +142,27 @@ $time = new timeago();
 			</div>
 		</div>	
 	</div>
-	<div class="container-fluid">
+	<div class="container-fluid d-flex justify-content-center">
 		<div class="row">
 			<div class="col">
 				<h5>
-					<div class="text_contents">
-					This website is for students in our university who like to learn online or teach online. You can be a tutor or a student easily by signing up to the website. <br>
-					This project is made as a result of our 2nd year university project. We had 3 members in our group. <br><br>
-					&#9733; Madushan(leader)<br>
-					&#9733; Ashan<br>
-					&#9733; Dilanga<br>
-					&#9733; Hirusha<br><br>
-					You can choose timeslots to learn or teach and students can choose tutors as they need. So this is easier than you think. <br>
+					<div class="text_contents ">
+					This website is for people in our university who likes to learn online or teach online. You can be a tutor or a student easily by signing up to the website. <br>
+					<br>
+					
+					As a student, with this website you don't need to spend time to discover the things you missed
+					in lectures, the questions you got when you study etc. You only have to choose a tutor. As a tutor you have a chance to teach students. 
+					it makes you more comfortable in your carrier or if you are a tutor which is a senior student, you will be more comfortable with your future learning. 
+					This may looks hard. But it is easier than you think. Just get started. <br>
 					If you have any questions, please contact us. 
 					</div>
 				
 				</h5>
 			</div>
 			<div class="col">
-				<img src="learn.jpg"class="rounded mx-auto d-block">	
+			<div class="rounded mx-auto d-block">
+          <img src="learn.jpg" class="img-fluid" alt="Image">
+        </div>	
 			</div>
 		</div>	
 	</div>
