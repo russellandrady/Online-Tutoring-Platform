@@ -82,7 +82,7 @@ $time = new timeago();
 		  <div class="test4"><a href="#"><img src="image/teaching.png" title="Tution" style="border-radius: 50%;" width="42" height="42"></a></div>
 		  <div class="mask2"><i class="fa fa-home fa-3x"></i></div> -->
 		</div>
-			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Newsfeed</a>
+			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Search Student</a>
 			
 			<?php 
 			if($utype_db == "teacher")
@@ -134,7 +134,7 @@ $time = new timeago();
 		</div>
 	</div>
 
-	<!-- newsfeed -->
+	<!-- Search Student -->
 	<div style="margin: 20px; overflow: hidden;">
 		<div style="width: 1000px; margin: 0 auto;">
 		

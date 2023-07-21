@@ -158,7 +158,7 @@ $_POST['first_name'] = trim($_POST['first_name']);
 		  <div class="test4"><a href="#"><img src="image/teaching.png" title="Tution" style="border-radius: 50%;" width="42" height="42"></a></div>
 		  <div class="mask2"><i class="fa fa-home fa-3x"></i></div> -->
 		</div>
-			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Newsfeed</a>
+			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Search Student</a>
 			<a class="navlink" href="#contact">Contact</a>
 			<a class="navlink" href=aboutus.php>About</a>
 			<div style="float: right;" >

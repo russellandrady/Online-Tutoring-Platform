@@ -57,7 +57,7 @@ if (isset($_REQUEST['teacher'])) {
 		</div>
 		<div class="topnav">
 			<a  onclick="w3_open()"><img src="image/menuicon2.png" width="16px" height="15px"></a>
-			<a class="active" href="index.php" style="margin: 0px 0px 0px 52px;">Newsfeed</a>
+			<a class="active" href="index.php" style="margin: 0px 0px 0px 52px;">Search Student</a>
 			<?php 
 			if($utype_db == "teacher")
 				{
@@ -97,7 +97,7 @@ if (isset($_REQUEST['teacher'])) {
 		</div>
 	</div>
 
-	<!-- newsfeed -->
+	<!-- Search Student -->
 	<div class="nbody" style="margin: 0px 100px; overflow: hidden;">
 		<div class="nfeedleft">
 

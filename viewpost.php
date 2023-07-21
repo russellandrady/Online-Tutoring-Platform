@@ -85,7 +85,7 @@ if (isset($_POST['post_apply'])) {
 		  <div class="test4"><a href="#"><img src="image/teaching.png" title="Tution" style="border-radius: 50%;" width="42" height="42"></a></div>
 		  <div class="mask2"><i class="fa fa-home fa-3x"></i></div> -->
 		</div>
-			<a class="active navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Newsfeed</a>
+			<a class="active navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Search Student</a>
 			<a class="navlink" href="#news">Search Tutor</a>
 			<?php 
 			if($utype_db == "teacher")
@@ -125,7 +125,7 @@ if (isset($_POST['post_apply'])) {
 		</div>
 	</div>
 
-	<!-- newsfeed -->
+	<!-- Search Student -->
 	<div class="nbody" style="margin: 0px 100px; overflow: hidden;">
 		<div class="nfeedleft">
 
