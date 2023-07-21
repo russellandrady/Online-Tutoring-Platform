@@ -160,7 +160,7 @@ $_POST['first_name'] = trim($_POST['first_name']);
 		</div>
 			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Newsfeed</a>
 			<a class="navlink" href="#contact">Contact</a>
-			<a class="navlink" href="aboutus.php">About</a>
+			<a class="navlink" href=aboutus.php>About</a>
 			<div style="float: right;" >
 				<table>
 					<tr>
