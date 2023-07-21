@@ -152,8 +152,8 @@ $time = new timeago();
 					
 					As a student, with this website you don't need to spend time to discover the things you missed
 					in lectures, the questions you got when you study etc. You only have to choose a tutor. As a tutor you have a chance to teach students. 
-					it makes you more comfortable in your carrier or if you are a tutor which is a senior student, you will be more comfortable with your future learning. 
-					This may looks hard. But it is easier than you think. Just get started. <br>
+					it makes you more comfortable in your carrier or if you are a tutor which is a senior student, you will be more comfortable with your future learnings. 
+					This may looks hard. But it is easier than you think. Just get started. <br><br>
 					If you have any questions, please contact us. 
 					</div>
 				
