@@ -1,112 +1,27 @@
 <?php
-
-$con = new mysqli('localhost:3360', 'root', '', 'main_db');
-
-if($con->connect_errno > 0){
-    die('Unable to connect to database [' . $con->connect_error . ']');
-}
-
-?>
-
-<?php
  include ( "inc/connection.inc.php" );
+
 ob_start();
 session_start();
 if (!isset($_SESSION['user_login'])) {
-	$utype_db = "";
 	$user = "";
+	$utype_db = "";
 }
 else {
-	header("location: index.php");
+	$user = $_SESSION['user_login'];
+	$result = $con->query("SELECT * FROM user WHERE id='$user'");
+		$get_user_name = $result->fetch_assoc();
+			$uname_db = $get_user_name['fullname'];
+			$utype_db = $get_user_name['type'];
 }
-$emails = "";
-$passs = "";
-if (isset($_POST['login'])) {
-	if (isset($_POST['email']) && isset($_POST['password'])) {
-		//$user_login = mysql_real_escape_string($_POST['email']);
-		$user_login = $_POST['email'];
-		$user_login = mb_convert_case($user_login, MB_CASE_LOWER, "UTF-8");	
-		//$password_login = mysql_real_escape_string($_POST['password']);		
-		$password_login = $_POST['password'];
-		$password_login_md5 = md5($password_login);
-		$result = $con->query("SELECT * FROM user WHERE (email='$user_login') AND pass='$password_login_md5'");
-		$num = mysqli_num_rows($result);
-		$get_user_email = $result->fetch_assoc();
-			$get_user_uname_db = $get_user_email['id'];
-			$get_user_type_db = $get_user_email['type'];
-		if (mysqli_num_rows($result)>0) {
-			$_SESSION['user_login'] = $get_user_uname_db;
-			setcookie('user_login', $user_login, time() + (365 * 24 * 60 * 60), "/");
-			$online = 'yes';
-			$result = $con->query("UPDATE user SET online='$online' WHERE id='$get_user_uname_db'");
-			if($_SESSION['u_post'] == "post")
-			{
-				//if (isset($_REQUEST['ono'])) {
-			//	$ono = mysql_real_escape_string($_REQUEST['ono']);
-			//	header("location: orderform.php?poid=".$ono."");
-			//}else {
-				if($get_user_type_db == "teacher"){
-					$_REQUEST['teacher'] = "logastchr";
-					header('location: checking.php?teacher=logastchr');
-				}else{
-					header('location: postform.php');
-				}
-				
-			//}
-			}elseif($_REQUEST['pid'] != ""){
-				header('location: viewpost.php?pid='.$_REQUEST['pid'].'');
-			}else{
-				header('location: index.php');
-			}
-			exit();
-		}
-		else {
-			header('Location: login.php');
-			
-		}
-	}
 
-}
-$acemails = "";
-$acccode = "";
-if(isset($_POST['activate'])){
-	if(isset($_POST['actcode'])){
-		$user_login = mysql_real_escape_string($_POST['acemail']);
-		$user_login = mb_convert_case($user_login, MB_CASE_LOWER, "UTF-8");	
-		$user_acccode = mysql_real_escape_string($_POST['actcode']);
-		$result2 = mysql_query("SELECT * FROM user WHERE (email='$user_login') AND confirmCode='$user_acccode'");
-		$num3 = mysql_num_rows($result2);
-		echo $user_login;
-		if ($num3>0) {
-			$get_user_email = mysql_fetch_assoc($result2);
-			$get_user_uname_db = $get_user_email['id'];
-			$_SESSION['user_login'] = $get_user_uname_db;
-			setcookie('user_login', $user_login, time() + (365 * 24 * 60 * 60), "/");
-			mysql_query("UPDATE user SET confirmCode='0', activation='yes' WHERE email='$user_login'");
-			if (isset($_REQUEST['ono'])) {
-				$ono = mysql_real_escape_string($_REQUEST['ono']);
-				header("location: orderform.php?poid=".$ono."");
-			}else {
-				header('location: index.php');
-			}
-			exit();
-		}else {
-			$emails = $user_login;
-			$error_message = '<br><br>
-				<div class="maincontent_text" style="text-align: center; font-size: 18px;">
-				<font face="bookman">Code not matched!<br>
-				</font></div>';
-		}
-	}else {
-		$error_message = '<br><br>
-				<div class="maincontent_text" style="text-align: center; font-size: 18px;">
-				<font face="bookman">Activation code not matched!<br>
-				</font></div>';
-	}
+//time ago convert
+include_once("inc/timeago.php");
+$time = new timeago();
 
-}
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -115,15 +30,16 @@ if(isset($_POST['activate'])){
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="css/footer.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/reg.css" rel="stylesheet" type="text/css" media="all" />
+
 	<!-- menu tab link -->
 	<link rel="stylesheet" type="text/css" href="css/homemenu.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	
 </head>
-<body class="">
+<body class="body1">
 <div>
-<div>
+	<div>
 		<header class="header">
 
 			<div class="header-cont">
@@ -134,11 +50,7 @@ if(isset($_POST['activate'])){
 
 			</div>
 		</header>
-		<div class="w3-sidebar w3-bar-block w3-collapse w3-card-2 w3-animate-left" style="width:100px;" id="mySidebar">
-		  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
-		  <a href="index.php" class="w3-bar-item w3-button">Tution</a>
-		  <a href="photography.php" class="w3-bar-item w3-button">Photography</a>
-		  <a href="#" class="w3-bar-item w3-button">IT</a>
+		  
 		</div>
 		<div class="topnav">
 			<div class="parent2">
@@ -152,21 +64,33 @@ if(isset($_POST['activate'])){
 			<?php 
 			if($utype_db == "teacher")
 				{
-					
-				}else {
-					
+					echo '<a class="navlink" href="teacherstudents.php">Your Choice</a>';
+				}if($utype_db == "student") {
+					echo '<a class="navlink" href="search.php">Search Tutor</a>';
+					echo '<a class="navlink" href="postform.php">Post</a>';
 				}
 
 			 ?>
-			<a class="navlink" href="#contact">Contact</a>
+			<a class="navlink" href="contact.html">Contact</a>
 			<a class="active navlink" href=aboutus.php>About</a>
+			
 			<div style="float: right;" >
 				<table>
 					<tr>
 						<?php
 							if($user != ""){
+								$resultnoti = $con->query("SELECT * FROM applied_post WHERE post_by='$user' AND student_ck='no'");
+								$resultnoti_cnt = $resultnoti->num_rows;
+								if($resultnoti_cnt == 0){
+									$resultnoti_cnt = "";
+								}else{
+									$resultnoti_cnt = '('.$resultnoti_cnt.')';
+								}
 								echo '<td>
-							<a class="active navlink" href="profile.php?uid='.$user.'">'.$uname_db.'</a>
+							<a class="navlink" href="notification.php">Notification'.$resultnoti_cnt.'</a>
+						</td>
+								<td>
+							<a class="navlink" href="profile.php?uid='.$user.'">'.$uname_db.'</a>
 						</td>
 						<td>
 							<a class="navlink" href="logout.php">Logout</a>
@@ -183,10 +107,26 @@ if(isset($_POST['activate'])){
 						
 					</tr>
 				</table>
+				
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid">
+	
+
+	<!-- newsfeed -->
+	
+	
+
+</div>
+<!-- main jquery script -->
+<script  src="js/jquery-3.2.1.min.js"></script>
+
+<!-- homemenu tab script -->
+<script  src="js/homemenu.js"></script>
+
+<!-- topnavfixed script -->
+<script  src="js/topnavfixed.js"></script>
+<div class="container-fluid">
 		<div class="row">
 			<div class="col">
 				<h1 class="d-flex justify-content-center">
@@ -217,13 +157,5 @@ if(isset($_POST['activate'])){
 			</div>
 		</div>	
 	</div>
-	<?php
-		include 'inc/footer.inc.php';
-	?>
-	</div>
-	</div>
- <!-- homemenu tab script -->
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script  src="js/homemenu.js"></script>
 </body>
 </html>
