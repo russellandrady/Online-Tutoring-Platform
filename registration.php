@@ -105,7 +105,7 @@ $_POST['first_name'] = trim($_POST['first_name']);
 							
 							$mail->isHTML(true);								
 							$mail->Subject = 'Test Email';
-							$mail->Body = 'HTML message body in <b>bold and succeed. </b> ';
+							$mail->Body = 'Hello '.$u_fname.'. You successfully registered to Online Tutoring System. <br>Please login with your username and password. ';
 							$mail->AltBody = 'Body in plain text for non-HTML mail clients';
 							$mail->send();
 							echo "Mail has been sent successfully!";
