@@ -74,13 +74,19 @@ $list_check = new checkboxlist();
 		  <div class="mask2"><i class="fa fa-home fa-3x"></i></div> -->
 		</div>
 			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Search Student</a>
-			<a class="active navlink" href="search.php">Search Tutor</a>
+			
 			<?php 
 			if($utype_db == "teacher")
 				{
 					
-				}else {
+				}
+				else if($utype_db == "student")
+				{
+					echo '<a class="active navlink" href="search.php">Search Tutor</a>';
 					echo '<a class=" navlink" href="postform.php">Post</a>';
+				}
+				else{
+					//exit;
 				}
 
 			 ?>

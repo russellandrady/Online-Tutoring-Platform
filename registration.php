@@ -1,4 +1,6 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 $con = new mysqli('localhost:3360', 'root', '', 'main_db');
 
 if($con->connect_errno > 0){
@@ -80,6 +82,36 @@ $_POST['first_name'] = trim($_POST['first_name']);
 						//success message
 
 						$sql = "INSERT INTO `user` (`fullname`,`gender`,`email`,`phone`,`pass`,`type`,`confirmcode`) VALUES ('".$u_fname."','".$u_gender."','".$u_email."','".$u_mobile."','".$u_pass."','".$u_ac."','".$confirmCode."')";
+
+						
+
+						require 'vendor/autoload.php';
+
+						$mail = new PHPMailer(true);
+
+						try {
+							$mail->SMTPDebug = 2;									
+							$mail->isSMTP();											
+							$mail->Host	 = 'smtp.gmail.com';					
+							$mail->SMTPAuth = true;							
+							$mail->Username = 'onlinetutorcheck@gmail.com';				
+							$mail->Password = 'zzplvgsdibvzarih';						
+							$mail->SMTPSecure = 'tls';							
+							$mail->Port	 = 587;
+
+							$mail->setFrom('onlinetutorcheck@gmail.com', 'Name');		
+							$mail->addAddress("$u_email");
+							$mail->addAddress("$u_email", 'Name');
+							
+							$mail->isHTML(true);								
+							$mail->Subject = 'Test Email';
+							$mail->Body = 'HTML message body in <b>bold and succeed. </b> ';
+							$mail->AltBody = 'Body in plain text for non-HTML mail clients';
+							$mail->send();
+							echo "Mail has been sent successfully!";
+						} catch (Exception $e) {
+							echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+						}
 
 						if($con->query($sql)){
 							//success message
