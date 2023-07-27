@@ -5,7 +5,7 @@
 				<div class="footer one">
 					<h3>More About Company</h3>
 					<p>An Educational Platform of University of Kelaniya.</p>
-					<p class="adam">admin</p>
+					<!-- <p class="adam">admin</p> -->
 					<div class="clear"></div>
 				</div>
 				<div class="footer two">

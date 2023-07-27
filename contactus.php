@@ -38,19 +38,26 @@ $time = new timeago();
 	
 </head>
 <style>
-    /* Custom CSS to make all text inside .container-fluid white */
-    .container-fluid * {
-      
-    }
-	.about-container{
-	/* max-width: 800px; */
+    .contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(242, 242, 242, 0);
+  }
+
+  .contact-form {
+    max-width: 800px;
     min-width: 600px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-	margin:100px;
-	}
+  }
+  .btn-green {
+    background-color: #4CAF50; 
+    color: #fff; 
+  }
   </style>
 <body class="body1">
 <div>
@@ -86,8 +93,8 @@ $time = new timeago();
 				}
 
 			 ?>
-			<a class="navlink" href="contactus.php">Contact</a>
-			<a class="active navlink" href=aboutus.php>About</a>
+			<a class="active navlink" href="contactus.php">Contact</a>
+			<a class="navlink" href=aboutus.php>About</a>
 			
 			<div style="float: right;" >
 				<table>
@@ -141,43 +148,34 @@ $time = new timeago();
 
 <!-- topnavfixed script -->
 <script  src="js/topnavfixed.js"></script>
-<div class="about-container">
-<div class="container-fluid">
-		<div class="row">
-			<div class="col">
-				<h1 class="d-flex justify-content-center" style="margin-bottom:30px">
-					About Us
-				</h1>
-			</div>
-		</div>	
-	</div>
-	<div class="container-fluid d-flex justify-content-center">
-		<div class="row">
-			<div class="col">
-				<h5>
-					<div class="text_contents ">
-					This website is for people in our university who likes to learn online or teach online. You can be a tutor or a student easily by signing up to the website. <br>
-					<br>
-					
-					As a student, with this website you don't need to spend time to discover the things you missed
-					in lectures, the questions you got when you study etc. You only have to choose a tutor. As a tutor you have a chance to teach students. 
-					it makes you more comfortable in your carrier or if you are a tutor which is a senior student, you will be more comfortable with your future learnings. 
-					This may looks hard. But it is easier than you think. Just get started. <br><br>
-					If you have any questions, please contact us. 
-					</div>
-				
-				</h5>
-			</div>
-			<div class="col">
-			<div class="rounded mx-auto d-block">
-          <img src="learn.jpg" class="img-fluid" alt="Image">
-        </div>	
-			</div>
-		</div>	
-	</div>
+<div class="contact-container">
+  <div class="contact-form">
+    <h1 class="text-center">Contact Us</h1>
+    <form id="contactForm">
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-green">Submit</button>
+    </form>
+  </div>
 </div>
-</body>
-</html>
 <?php
 		include 'inc/footer.inc.php';
 	?>
+<!-- Link to Bootstrap JS and any other scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // You can add JavaScript validation and form submission handling here if needed
+</script>
+
+</body>
+</html>

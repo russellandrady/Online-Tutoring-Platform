@@ -90,7 +90,7 @@ $_POST['first_name'] = trim($_POST['first_name']);
 						$mail = new PHPMailer(true);
 
 						try {
-							$mail->SMTPDebug = 2;									
+							$mail->SMTPDebug = false;									
 							$mail->isSMTP();											
 							$mail->Host	 = 'smtp.gmail.com';					
 							$mail->SMTPAuth = true;							
