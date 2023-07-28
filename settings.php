@@ -127,7 +127,7 @@ if ($senddata) {
 				}
 
 			 ?>
-			<a class="navlink" href="#contact">Contact</a>
+			<a class="navlink" href="contactus.php">Contact</a>
 			<a class="navlink" href=aboutus.php>About</a>
 			<div style="float: right;" >
 				<table>

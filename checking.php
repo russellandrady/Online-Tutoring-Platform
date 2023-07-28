@@ -68,7 +68,7 @@ if (isset($_REQUEST['teacher'])) {
 				}
 
 			 ?>
-			<a href="#contact">Contact</a>
+			<a href="contactus.php">Contact</a>
 			<a href="aboutus.php">About</a>
 			<div style="float: right;" >
 				<table>
