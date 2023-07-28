@@ -21,7 +21,46 @@ $time = new timeago();
 
 
 ?>
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$emailcont = $_POST["email"];
+$fullnamecont = $_POST["fullName"];
+$messagecont = $_POST["message"];
+if (isset($_POST['contactsend'])) {
+       
+	require 'vendor/autoload.php';
 
+	$mail = new PHPMailer(true);
+
+	try {
+		$mail->SMTPDebug = false;									
+		$mail->isSMTP();											
+		$mail->Host	 = 'smtp.gmail.com';					
+		$mail->SMTPAuth = true;							
+		$mail->Username = 'onlinetutorcheck@gmail.com';				
+		$mail->Password = 'zzplvgsdibvzarih';						
+		$mail->SMTPSecure = 'tls';							
+		$mail->Port	 = 587;
+
+		$mail->setFrom('onlinetutorcheck@gmail.com', 'Name');		
+		$mail->addAddress("andrady-cs19042@stu.kln.ac.lk");
+		$mail->addAddress("andrady-cs19042@stu.kln.ac.lk", 'Name');
+		
+		$mail->isHTML(true);								
+		$mail->Subject = 'Test Email';
+		$mail->Body = 'You got a contact us email from '.$fullnamecont.'.<br> His message: '.$messagecont.'. <br>His email: <a>'.$emailcont.'.</a> ';
+		$mail->AltBody = 'Body in plain text for non-HTML mail clients';
+		$mail->send();
+		echo "Mail has been sent successfully!";
+	} catch (Exception $e) {
+		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+	}
+}
+}
+   
+?>
 
 
 <!DOCTYPE html>
@@ -49,6 +88,7 @@ $time = new timeago();
   .contact-form {
     max-width: 800px;
     min-width: 600px;
+    min-height: 600px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -56,7 +96,9 @@ $time = new timeago();
   }
   .btn-green {
     background-color: #4CAF50; 
-    color: #fff; 
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
   }
   </style>
 <body class="body1">
@@ -151,20 +193,20 @@ $time = new timeago();
 <div class="contact-container">
   <div class="contact-form">
     <h1 class="text-center">Contact Us</h1>
-    <form id="contactForm">
+    <form id="contactForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
       <div class="mb-3">
         <label for="fullName" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="fullName" required>
+        <input type="text" class="form-control" id="fullName" name="fullName" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" required>
+        <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="mb-3">
         <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="5" required></textarea>
+        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
       </div>
-      <button type="submit" class="btn btn-green">Submit</button>
+      <button type="submit" class="btn btn-green d-flex justify-content-center" name="contactsend">Submit</button>
     </form>
   </div>
 </div>
