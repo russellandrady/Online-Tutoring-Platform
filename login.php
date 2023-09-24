@@ -147,17 +147,17 @@ if(isset($_POST['activate'])){
 		  <div class="test4"><a href="#"><img src="image/teaching.png" title="Tution" style="border-radius: 50%;" width="42" height="42"></a></div>
 		  <div class="mask2"><i class="fa fa-home fa-3x"></i></div> -->
 		</div>
-			<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Search Student</a>
+			
 			<?php 
 			if($utype_db == "teacher")
 				{
-					
+					//echo '<a class="navlink" href="index.php" style="margin: 0px 0px 0px 100px;">Search Student</a>';
 				}else {
 					
 				}
 
 			 ?>
-			<a class="navlink" href="contactus.php">Contact</a>
+			<a class="navlink" href="contactus.php" style="margin: 0px 0px 0px 100px">Contact</a>
 			<a class="navlink" href=aboutus.php>About</a>
 			<div style="float: right;" >
 				<table>
